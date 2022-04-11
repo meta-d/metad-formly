@@ -15,7 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@metad/formly/*": ["libs/material/*"]
+      "@metad/formly-mat": ["libs/material/src/index"],
+      "@metad/formly-mat/*": ["libs/material/*"],
+      "@metad/formly-antd": ["libs/antd/src/index"],
+      "@metad/formly-antd/*": ["libs/antd/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

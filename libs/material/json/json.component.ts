@@ -11,20 +11,22 @@ import { distinctUntilChanged, startWith } from 'rxjs/operators';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  selector: 'matad-formly-mat-json',
+  selector: 'metad-formly-mat-json',
   templateUrl: './json.component.html',
   styleUrls: ['./json.component.scss'],
 })
 export class MetadFormlyJsonComponent extends FieldType implements OnInit {
-  @HostBinding('class.matad-formly-mat-json')
+  @HostBinding('class.metad-formly-mat-json')
   appearance: MatFormFieldAppearance = 'standard';
 
   fControl = new FormControl();
 
   ngOnInit() {
+    this.appearance = this.to?.attributes?.['appearance'] as MatFormFieldAppearance ?? this.appearance
     this.formControl.valueChanges
       .pipe(startWith(this.formControl.value))
       .subscribe((value) => {
+        console.warn(value)
         this.fControl.setValue(JSON.stringify(value || undefined, null, 2));
       });
 

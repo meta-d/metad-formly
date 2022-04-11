@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "antd": "libs/antd",
     "example": "apps/example",
     "example-e2e": "apps/example-e2e",
     "material": "libs/material"

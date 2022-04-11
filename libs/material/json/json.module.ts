@@ -16,7 +16,13 @@ import { MetadFormlyJsonComponent } from './json.component';
     MatInputModule,
     MatIconModule,
     FormlyModule.forChild({
-      types: [{ name: 'json', component: MetadFormlyJsonComponent }],
+      types: [
+        { name: 'mat-json', component: MetadFormlyJsonComponent },
+        {
+          name: 'json',
+          extends: 'mat-json',
+        },
+      ],
     }),
   ],
   exports: [MetadFormlyJsonComponent],

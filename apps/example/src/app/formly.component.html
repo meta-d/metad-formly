@@ -1,0 +1,4 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit(model)">
+    <formly-form [form]="form" [fields]="schema" [model]="model"></formly-form>
+    <button mat-button type="submit">Submit</button>
+</form>

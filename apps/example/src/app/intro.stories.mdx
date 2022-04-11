@@ -1,0 +1,125 @@
+<!-- Badge.stories.mdx -->
+
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+
+import { moduleMetadata } from '@storybook/angular';
+
+import { CommonModule } from '@angular/common';
+import { MetadFormlyModule } from './formly.module'
+
+import { MetaFormlyComponent } from './formly.component';
+
+<Meta title="Intro" component={MetaFormlyComponent} decorators={[moduleMetadata({imports: [MetadFormlyModule]})]}/>
+
+# Metad Formly Components
+
+Let's define a story for our `Formly` components
+
+## Material Components
+
+```javascript
+{
+  key: 'value',
+  type: 'json',
+  templateOptions: {
+    label: 'JSON'
+  }
+}
+```
+
+<Story name="1. Textarea for JSON Object">
+  {{
+    template:`<metad-formly [schema]="[{
+      key: 'value',
+      type: 'json',
+      templateOptions: {
+        label: 'JSON'
+      }
+    }]"
+    [model]="{
+      value: {
+        key: 'value',
+        type: 'json',
+        templateOptions: {
+          label: 'JSON'
+        }
+      }
+    }"></metad-formly>`,
+  }}
+</Story>
+
+You can set attributes in templateOptions to change material component appearance:
+
+```javascript
+[
+  {
+    key: "value",
+    type: "json",
+    templateOptions: {
+      label: "JSON Outline",
+      attributes: {
+        appearance: "outline",
+      },
+    },
+  },
+  {
+    key: "value2",
+    type: "json",
+    templateOptions: {
+      label: "JSON Fill",
+      attributes: {
+        appearance: "fill",
+      },
+    },
+  },
+]
+```
+
+Result:
+
+<Story name="2. Material Appearance for JSON Type">
+  {{
+    template:`<metad-formly [schema]="[{
+      key: 'value',
+      type: 'json',
+      templateOptions: {
+        label: 'JSON Outline',
+        attributes: {
+          appearance: 'outline'
+        }
+      }
+    }, {
+      key: 'value2',
+      type: 'json',
+      templateOptions: {
+        label: 'JSON Fill',
+        attributes: {
+          appearance: 'fill'
+        }
+      }
+    }]"></metad-formly>`,
+  }}
+</Story>
+
+## Ant Design Components
+
+<Story name="3. Antd Textarea Type">
+  {{
+    template:`<metad-formly [schema]="[{
+      key: 'value',
+      type: 'nz-textarea',
+      templateOptions: {
+        label: 'Textarea'
+      }
+    }]"
+    model="{
+      value: {
+        key: 'value',
+        type: 'nz-textarea',
+        templateOptions: {
+          label: 'JSON'
+        }
+      }
+    }"></metad-formly>`,
+  }}
+</Story>

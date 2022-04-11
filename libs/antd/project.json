@@ -1,0 +1,39 @@
+{
+  "projectType": "library",
+  "root": "libs/antd",
+  "sourceRoot": "libs/antd/src",
+  "prefix": "metad-formly",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/libs/antd"],
+      "options": {
+        "project": "libs/antd/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/antd/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/antd/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/antd"],
+      "options": {
+        "jestConfig": "libs/antd/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/antd/src/**/*.ts", "libs/antd/src/**/*.html"]
+      }
+    }
+  },
+  "tags": []
+}

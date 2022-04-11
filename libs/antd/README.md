@@ -1,5 +1,4 @@
-
-
-# Metad Components for ngx-formly
+# Metad Formly Components for Ant Design
 
 [Examples & Docs](https://meta-d.github.io/metad-formly/?path=/docs)
+

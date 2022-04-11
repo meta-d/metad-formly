@@ -1,6 +1,6 @@
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { MetadFormlyMatJsonModule } from '@metad/formly/mat-json';
+import { MetadFormlyMatJsonModule } from '@metad/formly-mat/json';
 import { FormlyModule } from '@ngx-formly/core';
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 import { NxWelcomeComponent } from './nx-welcome.component';

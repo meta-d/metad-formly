@@ -1,7 +1,3 @@
-# material
+# Metad Formly Components for Material Design
 
-This library was generated with [Nx](https://nx.dev).
-
-## Running unit tests
-
-Run `nx test material` to execute the unit tests.
+[Examples & Docs](https://meta-d.github.io/metad-formly/?path=/docs)
