@@ -1,0 +1,9 @@
+<mat-form-field [appearance]="appearance">
+  <mat-label>{{to.label}}</mat-label>
+
+  <textarea matInput [formControl]="fControl"></textarea>
+
+  <mat-error *ngIf="fControl.invalid">
+    <span *ngFor="let item of fControl.errors | keyvalue">{{item.value.message}}</span>
+  </mat-error>
+</mat-form-field>

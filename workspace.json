@@ -1,4 +1,8 @@
 {
   "version": 2,
-  "projects": {}
+  "projects": {
+    "example": "apps/example",
+    "example-e2e": "apps/example-e2e",
+    "material": "libs/material"
+  }
 }
