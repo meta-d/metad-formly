@@ -434,7 +434,7 @@ import { FormGroup } from '@angular/forms';
         <div id="welcome">
           <h1>
             <span> Metad Formly, </span>
-            ngx-formly Components 👋
+            Components for ngx-formly 👋
           </h1>
         </div>
 
