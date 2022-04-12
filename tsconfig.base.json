@@ -19,7 +19,10 @@
       "@metad/formly-mat/*": ["libs/material/*"],
       "@metad/formly-antd": ["libs/antd/src/index"],
       "@metad/formly-antd/*": ["libs/antd/*"]
-    }
+    },
+    "noImplicitAny": false,
+    "strictNullChecks": false,
+    "noPropertyAccessFromIndexSignature": false
   },
   "exclude": ["node_modules", "tmp"]
 }

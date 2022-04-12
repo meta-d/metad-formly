@@ -8,7 +8,7 @@ import { FormGroup } from '@angular/forms';
 })
 export class MetaFormlyComponent implements OnInit {
   @Input() schema: any;
-  @Input() model = {};
+  @Input() model
 
   form = new FormGroup({});
   

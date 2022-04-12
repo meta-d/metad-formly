@@ -1515,7 +1515,7 @@
   dependencies:
     postcss-value-parser "^4.2.0"
 
-"@ctrl/tinycolor@^3.3.1":
+"@ctrl/tinycolor@^3.3.1", "@ctrl/tinycolor@^3.4.0":
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/@ctrl/tinycolor/-/tinycolor-3.4.1.tgz#75b4c27948c81e88ccd3a8902047bcd797f38d32"
   integrity sha512-ej5oVy6lykXsvieQtqZxCOaLT+xD4+QNarq78cIYISHmZXshCvROLudpQN3lfL8G0NL7plMSSK+zlyvCaIJ4Iw==
@@ -2034,6 +2034,23 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
+"@ng-matero/extensions@^13.1.0":
+  version "13.1.0"
+  resolved "https://registry.yarnpkg.com/@ng-matero/extensions/-/extensions-13.1.0.tgz#d42bc293311f424e9ded4a9ec1174df7c13febbd"
+  integrity sha512-LimEmUrigRJGdRJaBl1CWCfUP1gpJ2udkz7TCKx7+TP3tRqnyfR5LQGQ8cmm+T6qw+BEma4tdhgU74Ui0wysuA==
+  dependencies:
+    "@ng-select/ng-select" "^8.0.0"
+    ngx-color "^7.3.0"
+    photoviewer "^3.6.0"
+    tslib "^2.3.0"
+
+"@ng-select/ng-select@^8.0.0":
+  version "8.1.1"
+  resolved "https://registry.yarnpkg.com/@ng-select/ng-select/-/ng-select-8.1.1.tgz#1697d554970b99fc238255709655fb4dd45d1ab1"
+  integrity sha512-CP9Pve3L1aGqej38T9utdd6Waobbybwe9QIEObwicBI5fiIMAXwKT6lFT3fDLTUK/79y5nebiGtwTBfMm71Psg==
+  dependencies:
+    tslib "^2.3.1"
+
 "@ngtools/webpack@13.3.2":
   version "13.3.2"
   resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-13.3.2.tgz#5e9568346af82b49f13e207d99dcf0a896063c3c"
@@ -2045,6 +2062,13 @@
   integrity sha512-1YQIu69w3dU4KlrKj6gOgY5ekiut3erZyJ8lMpPNYl1/I1fd3mkEMOjBKqeDdm29buScuD/YcxSQiePDpseKzA==
   dependencies:
     tslib "^1.7.1"
+
+"@ngx-formly/material@^5.12.0":
+  version "5.12.0"
+  resolved "https://registry.yarnpkg.com/@ngx-formly/material/-/material-5.12.0.tgz#587ca245ffa6b474be55fd65c8bb844a767304f7"
+  integrity sha512-km37Q+PLHYmEOv17AM35kichDwLgvQ5t+FgIWzWcyPhcEbzgRWOCAtXDt+htiLkMPD9kQDRpniF/zIlECsZfdA==
+  dependencies:
+    tslib "^1.9.0"
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -6673,6 +6697,11 @@ domhandler@^4.0.0, domhandler@^4.2.0, domhandler@^4.3.1:
   dependencies:
     domelementtype "^2.2.0"
 
+domq.js@^0.6.7:
+  version "0.6.7"
+  resolved "https://registry.yarnpkg.com/domq.js/-/domq.js-0.6.7.tgz#3e7684c6281fd8ebbb406e95547f1e3faed508ec"
+  integrity sha512-WwRGORo/eYGf7v7YXZ3M6x/PEoxCsP3D0my7pnAVwtbfsKRvW6qioSdlLsy1MFzfwN1TM9oO9QJcvkE8ERYmlg==
+
 domutils@^2.5.2, domutils@^2.8.0:
   version "2.8.0"
   resolved "https://registry.yarnpkg.com/domutils/-/domutils-2.8.0.tgz#4437def5db6e2d1f5d6ee859bd95ca7d02048135"
@@ -10693,6 +10722,11 @@ markdown-to-jsx@^7.1.3:
   resolved "https://registry.yarnpkg.com/markdown-to-jsx/-/markdown-to-jsx-7.1.7.tgz#a5f22102fb12241c8cea1ca6a4050bb76b23a25d"
   integrity sha512-VI3TyyHlGkO8uFle0IOibzpO1c1iJDcXcS/zBrQrXQQvJ2tpdwVzVZ7XdKsyRz1NdRmre4dqQkMZzUHaKIG/1w==
 
+material-colors@^1.2.6:
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/material-colors/-/material-colors-1.2.6.tgz#6d1958871126992ceecc72f4bcc4d8f010865f46"
+  integrity sha512-6qE4B9deFBIa9YSpOc9O0Sgc43zTeVYbgDT5veRKSlB2+ZuHNoVVxA1L/ckMUayV9Ay9y7Z/SZCLcGteW9i7bg==
+
 md5.js@^1.3.4:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/md5.js/-/md5.js-1.3.5.tgz#b5d07b8e3216e3e27cd728d72f70d1e6a342005f"
@@ -11046,6 +11080,11 @@ mkdirp@^1.0.3, mkdirp@^1.0.4:
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
 
+monaco-editor@^0.33.0:
+  version "0.33.0"
+  resolved "https://registry.yarnpkg.com/monaco-editor/-/monaco-editor-0.33.0.tgz#842e244f3750a2482f8a29c676b5684e75ff34af"
+  integrity sha512-VcRWPSLIUEgQJQIE0pVT8FcGBIgFoxz7jtqctE+IiCxWugD0DwgyQBcZBhdSrdMC84eumoqMZsGl2GTreOzwqw==
+
 move-concurrently@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/move-concurrently/-/move-concurrently-1.0.1.tgz#be2c005fda32e0b29af1f05d7c4b33214c701f92"
@@ -11193,6 +11232,22 @@ ng-zorro-antd@^13.1.1:
     "@ant-design/icons-angular" "^13.0.1"
     date-fns "^2.16.1"
     tslib "^2.3.0"
+
+ngx-color@^7.3.0:
+  version "7.3.3"
+  resolved "https://registry.yarnpkg.com/ngx-color/-/ngx-color-7.3.3.tgz#e328290244eb302fa8a12474f578ace02d82a148"
+  integrity sha512-RyMIFMC5/aYYD/jkfStOUjr3gQfTGhgiiMxuZEfxt2o4GYmb3C/06C1o0S6Mj9qHAcKlG6soioq2MzdhtIswHw==
+  dependencies:
+    "@ctrl/tinycolor" "^3.4.0"
+    material-colors "^1.2.6"
+    tslib "^2.3.0"
+
+ngx-monaco-editor@^12.0.0:
+  version "12.0.0"
+  resolved "https://registry.yarnpkg.com/ngx-monaco-editor/-/ngx-monaco-editor-12.0.0.tgz#060b46d764df68319826e3664358cf1529c5ca11"
+  integrity sha512-/HXTILVwWvrk4OkT1p88nb+PGEqlecQot2VMTdSLbVW7A24fNZpDAF6tNR4Bp3V/abZjShDK8LfsqLePA0tPmw==
+  dependencies:
+    tslib "^2.1.0"
 
 nice-napi@^1.0.2:
   version "1.0.2"
@@ -12002,6 +12057,13 @@ performance-now@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
   integrity sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
+
+photoviewer@^3.6.0:
+  version "3.6.2"
+  resolved "https://registry.yarnpkg.com/photoviewer/-/photoviewer-3.6.2.tgz#c661a82207a8074c763c50f7e900f1f5ae4c7cf7"
+  integrity sha512-tNLMo1HKcb7+6jeawjt8rxB4HNH1kpijU5yxKE5lPNAcQJ0eBbsKYfuJ6TKPvm7+3KFCZQS+/3+9rycv0creNQ==
+  dependencies:
+    domq.js "^0.6.7"
 
 picocolors@^0.2.1:
   version "0.2.1"

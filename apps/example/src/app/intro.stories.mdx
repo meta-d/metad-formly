@@ -5,17 +5,20 @@ import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { moduleMetadata } from '@storybook/angular';
 
 import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MetadFormlyModule } from './formly.module'
 
 import { MetaFormlyComponent } from './formly.component';
 
-<Meta title="Intro" component={MetaFormlyComponent} decorators={[moduleMetadata({imports: [MetadFormlyModule]})]}/>
+<Meta title="Intro" component={MetaFormlyComponent} decorators={[moduleMetadata({imports: [BrowserAnimationsModule, MetadFormlyModule]})]}/>
 
-# Metad Formly Components
+# Metad Formly Components 👋
 
 Let's define a story for our `Formly` components
 
 ## Material Components
+
+### Textarea for JSON Type
 
 ```javascript
 {
@@ -27,26 +30,7 @@ Let's define a story for our `Formly` components
 }
 ```
 
-<Story name="1. Textarea for JSON Object">
-  {{
-    template:`<metad-formly [schema]="[{
-      key: 'value',
-      type: 'json',
-      templateOptions: {
-        label: 'JSON'
-      }
-    }]"
-    [model]="{
-      value: {
-        key: 'value',
-        type: 'json',
-        templateOptions: {
-          label: 'JSON'
-        }
-      }
-    }"></metad-formly>`,
-  }}
-</Story>
+<Story id="material-json--primary"></Story>
 
 You can set attributes in templateOptions to change material component appearance:
 
@@ -75,51 +59,89 @@ You can set attributes in templateOptions to change material component appearanc
 ]
 ```
 
-Result:
+Preview:
 
-<Story name="2. Material Appearance for JSON Type">
-  {{
-    template:`<metad-formly [schema]="[{
-      key: 'value',
-      type: 'json',
+<Story id="material-json--appearance"></Story>
+
+### Array
+
+<Story id="material-array--primary"></Story>
+
+### Material Tabs
+
+```javascript
+{
+  key: 'value',
+  type: 'tabs',
+  fieldGroup: [
+    {
+      key: 'xAxis',
       templateOptions: {
-        label: 'JSON Outline',
-        attributes: {
-          appearance: 'outline'
+        label: 'X Axis'
+      },
+      fieldGroup: [
+        {
+          key: 'show',
+          type: 'toggle',
+          templateOptions: {
+            label: 'Is Show'
+          }
+        },
+        {
+          key: 'type',
+          type: 'select',
+          templateOptions: {
+            label: 'Type',
+            options: [
+              {value: 'value', label: 'Value'},
+              {value: 'category', label: 'Category'}
+            ]
+          }
         }
-      }
-    }, {
-      key: 'value2',
-      type: 'json',
+      ]
+    },
+    {
+      key: 'yAxis',
       templateOptions: {
-        label: 'JSON Fill',
-        attributes: {
-          appearance: 'fill'
-        }
-      }
-    }]"></metad-formly>`,
-  }}
-</Story>
+        label: 'Y Axis'
+      },
+      fieldGroup: [...]
+    }
+  ],
+  templateOptions: {
+    label: 'Tabs Group'
+  }
+}
+```
+
+<Story id="material-tabs--primary"></Story>
+
+### Material Color Picker
+
+Use type `color` for color picker field.
+
+The schema:
+
+```javascript
+{
+  key: 'value',
+  type: 'color',
+  templateOptions: {
+    label: 'Color'
+  }
+}
+```
+
+Preview:
+
+<Story id="material-color-picker--primary"></Story>
+
+### Code Editor
+
+<Story id="material-code-editor--primary" />
 
 ## Ant Design Components
 
-<Story name="3. Antd Textarea Type">
-  {{
-    template:`<metad-formly [schema]="[{
-      key: 'value',
-      type: 'nz-textarea',
-      templateOptions: {
-        label: 'Textarea'
-      }
-    }]"
-    model="{
-      value: {
-        key: 'value',
-        type: 'nz-textarea',
-        templateOptions: {
-          label: 'JSON'
-        }
-      }
-    }"></metad-formly>`,
-  }}
-</Story>
+### Textarea
+
+<Story id="antd-textarea--primary"></Story>

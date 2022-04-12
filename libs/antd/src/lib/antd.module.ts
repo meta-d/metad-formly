@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MetadFormlyNzTextAreaModule } from '../../textarea';
+import { MetadFormlyNzTextAreaModule } from '@metad/formly-antd/textarea';
+import { MetadFormlyNzArrayTabsetModule } from '@metad/formly-antd/array-tabset';
 
 @NgModule({
   imports: [
     CommonModule,
-    MetadFormlyNzTextAreaModule
+    MetadFormlyNzTextAreaModule,
+    MetadFormlyNzArrayTabsetModule
   ],
 })
 export class MetadFormlyAntdModule {}

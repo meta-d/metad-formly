@@ -1,8 +1,10 @@
 :host {
+  display: flex;
   flex: 1;
   max-width: 100%;
 }
 
 .mat-form-field {
+  flex: 1;
   max-width: 100%;
 }

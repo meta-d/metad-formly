@@ -20,6 +20,10 @@ import { MetadFormlyFieldTextAreaComponent } from './textarea.type';
           name: 'nz-textarea',
           component: MetadFormlyFieldTextAreaComponent,
         },
+        {
+          name: 'textarea',
+          extends: 'nz-textarea'
+        }
       ],
     }),
   ],

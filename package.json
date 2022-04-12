@@ -20,8 +20,12 @@
     "@angular/platform-browser": "~13.3.0",
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/router": "~13.3.0",
+    "@ng-matero/extensions": "^13.1.0",
     "@ngx-formly/core": "^5.12.0",
+    "@ngx-formly/material": "^5.12.0",
+    "monaco-editor": "^0.33.0",
     "ng-zorro-antd": "^13.1.1",
+    "ngx-monaco-editor": "^12.0.0",
     "rxjs": "~7.4.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"

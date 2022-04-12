@@ -1,9 +1,22 @@
 {
   "name": "@metad/formly-mat",
-  "version": "0.0.1-rc.1",
+  "version": "0.0.1",
+  "keywords": [
+    "Angular",
+    "metad",
+    "formly",
+    "antd"
+  ],
+  "author": "Tiven Wang <i.tiven.wang@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/meta-d/metad-formly",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meta-d/metad-formly.git"
+  },
   "peerDependencies": {
-    "@angular/common": "^13.3.0",
-    "@angular/core": "^13.3.0"
+    "@angular/common": ">=13.0.0",
+    "@angular/core": ">=13.0.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
