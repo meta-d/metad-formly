@@ -9,12 +9,12 @@ import { MatSlideToggle } from '@angular/material/slide-toggle';
       [id]="id"
       [formControl]="$any(formControl)"
       [formlyAttributes]="field"
-      [color]="to.color"
-      [tabIndex]="to.tabindex"
-      [required]="to.required"
-      labelPosition="before"
+      [color]="to?.color"
+      [tabIndex]="to?.tabindex"
+      [required]="to?.required"
+      [labelPosition]="to?.labelPosition"
     >
-      {{ to.label }}
+      {{ to?.label }}
     </mat-slide-toggle>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,

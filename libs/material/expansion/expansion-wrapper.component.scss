@@ -1,0 +1,44 @@
+:host {
+  flex: 1;
+
+  .mat-accordion {
+    display: block;
+
+    .mat-expansion-panel {
+      border-radius: 0;
+    }
+  }
+}
+
+.nx-formly-expansion__panel-row {
+  position: relative;
+
+  formly-field {
+    flex: 1;
+  }
+  .nx-formly__remove {
+    position: absolute;
+    top: 0;
+    right: 10px;
+  }
+  .nx-formly__remove,
+  .mat-divider {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  &.removeable:hover {
+    .nx-formly__remove {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+}
+.mat-expansion-panel-header-description {
+  justify-content: flex-end;
+  margin-right: 0;
+  .mat-slide-toggle {
+    flex: 0;
+  }
+}

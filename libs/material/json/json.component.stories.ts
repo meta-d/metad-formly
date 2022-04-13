@@ -47,7 +47,18 @@ Primary.args = {
 export const Appearance = Template.bind({});
 Appearance.args = {
   form: new FormGroup({}),
-  model: {},
+  model: {
+    value: {
+      key: 'value',
+      type: 'json',
+      templateOptions: {
+        label: 'JSON Outline',
+        attributes: {
+          appearance: 'outline',
+        },
+      },
+    }
+  },
   schema: [
     {
       key: 'value',

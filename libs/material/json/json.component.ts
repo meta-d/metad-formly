@@ -35,7 +35,7 @@ export class MetadFormlyJsonComponent extends FieldType implements OnInit {
       .subscribe((value) => {
         try {
           const json = parse(value);
-          this.formControl.setValue(json, {emitEvent: false});
+          this.formControl.setValue(json);
         } catch (err) {
           this.fControl.setErrors({ err });
         }

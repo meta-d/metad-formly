@@ -21,11 +21,17 @@
 
 ## Install
 
-`npm install @metad/formly-antd @metad/formly-mat`
+### NPM
 
-or 
+`npm install @metad/formly-mat`
 
-`yarn add @metad/formly-antd @metad/formly-mat`
+`npm install @metad/formly-antd`
+
+### Yarn
+
+`yarn add @metad/formly-mat`
+
+`yarn add @metad/formly-antd`
 
 Which Version to use?
 

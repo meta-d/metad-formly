@@ -1,0 +1,52 @@
+<mat-accordion class="nx-accordion" displayMode="flat" togglePosition="before">
+    <mat-expansion-panel #expansionPanel class="mat-elevation-z" [ngClass]="{disabled: to.toggleable && to.disabled}"
+      [expanded]="!to.disabled && to?.expanded"
+      [disabled]="to.toggleable && to.disabled">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+            {{to.label}}
+        </mat-panel-title>
+        <mat-panel-description fxFlex>
+          <button *ngIf="fieldGroup$ | async" mat-icon-button type="button" [matMenuTriggerFor]="menu"
+            (click)="$event.stopPropagation()">
+            <mat-icon>more_horiz</mat-icon>
+          </button>
+
+          <mat-slide-toggle *ngIf="to.toggleable" labelPosition="before"
+            [checked]="!to.disabled"
+            (change)="onToggle($event)"
+            (click)="$event.stopPropagation()">
+          </mat-slide-toggle>
+        </mat-panel-description>
+        
+      </mat-expansion-panel-header>
+
+      <ng-container *ngIf="to.enableSelectFields">
+        <div *ngFor="let fieldItem of fields$ | async; let i = index; let last = last"
+          fxLayout="row" fxLayoutAlign="space-between center"
+          class="nx-formly-expansion__panel-row"
+          [ngClass]="!!fieldItem.key&&!fieldItem.templateOptions?.required?'removeable':''">
+          <formly-field [field]="fieldItem"></formly-field>
+
+          <mat-divider [vertical]="true" fxFlexAlign="stretch"></mat-divider>
+
+          <button mat-icon-button class="nx-formly__remove" color="warn" (click)="remove(i)">
+            <mat-icon>clear</mat-icon>
+          </button>
+        </div>
+      </ng-container>
+
+      <div class="nx-formly-expansion__panel-row" *ngIf="!to.enableSelectFields">
+        <ng-container #fieldComponent></ng-container>
+      </div>
+      
+    </mat-expansion-panel>
+</mat-accordion>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item *ngFor="let field of fieldGroup$ | async; let i = index; let last = last; trackBy: trackByKey"
+    (click)="onAddField(field)">
+    <mat-icon fontSet="material-icons-outlined">{{ field.templateOptions.icon }}</mat-icon>
+    <span>{{ field.templateOptions.label }}</span>
+  </button>
+</mat-menu>

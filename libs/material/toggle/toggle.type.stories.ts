@@ -27,6 +27,7 @@ export default {
 const Template: Story<any> = (args: MetadFormlyToggleComponent) => ({
   props: args,
   template: `<formly-form [form]="form" [fields]="schema" [model]="model"></formly-form>
+<button mat-button [disabled]="form.invalid">Submit</button>
 <div>Result:</div>
 <pre>{{form.value | json}}</pre>`,
 });
@@ -41,6 +42,33 @@ Primary.args = {
       type: 'toggle',
       templateOptions: {
         label: 'Slide Toggle'
+      },
+    },
+    {
+      key: 'value2',
+      type: 'toggle',
+      templateOptions: {
+        label: 'Slide Toggle 2',
+        labelPosition: 'before'
+      },
+    },
+    {
+      key: 'value3',
+      type: 'toggle',
+      templateOptions: {
+        label: 'Slide Toggle 3',
+        labelPosition: 'before',
+        color: 'primary'
+      },
+    },
+    {
+      key: 'value4',
+      type: 'toggle',
+      templateOptions: {
+        label: 'Required true',
+        labelPosition: 'before',
+        color: 'primary',
+        required: true
       },
     },
   ],

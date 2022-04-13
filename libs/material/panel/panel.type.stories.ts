@@ -4,12 +4,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyMaterialModule } from '@ngx-formly/material';
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
-import { MetadFormlyArrayTabsModule } from './array.module';
-import { MetadFormlyArrayTabsComponent } from './array.type';
+import { MetadFormlyPanelModule } from './panel.module';
+import { MetadFormlyPanelComponent } from './panel.type';
+
 
 export default {
-  title: 'Material/Array Tabs',
-  component: MetadFormlyArrayTabsComponent,
+  title: 'Material/Panel',
+  component: MetadFormlyPanelComponent,
   decorators: [
     moduleMetadata({
       imports: [
@@ -17,19 +18,43 @@ export default {
         ReactiveFormsModule,
         MatButtonModule,
         FormlyModule.forRoot(),
-        MetadFormlyArrayTabsModule,
-        FormlyMaterialModule
+        FormlyMaterialModule,
+        MetadFormlyPanelModule,
       ],
     }),
   ],
-} as Meta<MetadFormlyArrayTabsComponent>;
+} as Meta<MetadFormlyPanelComponent>;
 
-const Template: Story<any> = (args: MetadFormlyArrayTabsComponent) => ({
+const Template: Story<any> = (args: MetadFormlyPanelComponent) => ({
   props: args,
   template: `<formly-form [form]="form" [fields]="schema" [model]="model"></formly-form>
+<button mat-button [disabled]="form.invalid">Submit</button>
 <div>Result:</div>
 <pre>{{form.value | json}}</pre>`,
 });
+
+function fieldGroup() {
+  return [
+    {
+      key: 'show',
+      type: 'checkbox',
+      templateOptions: {
+        label: 'Is Show',
+      },
+    },
+    {
+      key: 'type',
+      type: 'select',
+      templateOptions: {
+        label: 'Type',
+        options: [
+          { value: 'value', label: 'Value' },
+          { value: 'category', label: 'Category' },
+        ],
+      },
+    },
+  ]
+}
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -38,30 +63,12 @@ Primary.args = {
   schema: [
     {
       key: 'value',
-      type: 'array-tabs',
+      wrappers: ['panel'],
       templateOptions: {
-        label: 'Array Tabs',
-        labelField: 'key',
-        removeLabel: 'Remove Current Tab'
+        label: 'Panel Type',
+        padding: true
       },
-      fieldArray: {
-        fieldGroup: [
-          {
-            key: 'key',
-            type: 'input',
-            templateOptions: {
-              label: 'Key',
-            },
-          },
-          {
-            key: 'value',
-            type: 'input',
-            templateOptions: {
-              label: 'Value',
-            },
-          },
-        ],
-      },
+      fieldGroup: fieldGroup(),
     },
   ],
 };

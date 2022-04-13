@@ -34,10 +34,10 @@ import { FieldArrayType } from '@ngx-formly/core'
 export class MetadFormlyArrayTabsComponent extends FieldArrayType {
 
   get labelField() {
-    return this.to?.attributes?.['labelField'] as string
+    return this.to?.['labelField'] as string
   }
   get removeLabel() {
-    return this.to?.attributes?.['removeLabel'] as string
+    return this.to?.['removeLabel'] as string
   }
   drop(event: CdkDragDrop<string[]>) {
     if (!Array.isArray(this.field.fieldGroup) || !Array.isArray(this.field.model)) {

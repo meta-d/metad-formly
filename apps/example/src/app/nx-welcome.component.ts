@@ -440,8 +440,13 @@ import { FormGroup } from '@angular/forms';
 
         <form [formGroup]="form" (ngSubmit)="onSubmit(model)">
           <formly-form [form]="form" [fields]="schema" [model]="model"></formly-form>
-          <button mat-button type="submit">Submit</button>
+          <!-- <button mat-button type="submit">Submit</button> -->
         </form>
+
+        <div>
+          <h2>Output:</h2>
+          <pre>{{form.value | json}}</pre>
+        </div>
 
       </div>
     </div>
