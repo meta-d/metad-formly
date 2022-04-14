@@ -1,0 +1,43 @@
+/* You can add global styles to this file, and also import other style files */
+.metad-formly__row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.metad-formly__col {
+  padding-right: 1rem;
+}
+.metad-formly__col > formly-wrapper-mat-form-field {
+  flex: 1;
+  max-width: 100%;
+}
+.metad-formly__col.col-12 {
+  display: flex;
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+.metad-formly__col.col-9 {
+  display: flex;
+  flex: 0 0 75%;
+  max-width: 75%;
+}
+.metad-formly__col.col-8 {
+  display: flex;
+  flex: 0 0 66.6%;
+  max-width: 66.6%;
+}
+.metad-formly__col.col-6 {
+  display: flex;
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+.metad-formly__col.col-4 {
+  display: flex;
+  flex: 0 0 33.3%;
+  max-width: 33.3%;
+}
+.metad-formly__col.col-3 {
+  display: flex;
+  flex: 0 0 25%;
+  max-width: 25%;
+}
