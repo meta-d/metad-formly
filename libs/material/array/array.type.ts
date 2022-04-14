@@ -35,16 +35,7 @@ import { FieldArrayType } from '@ngx-formly/core'
   host: {
     class: 'metad-formly-array'
   },
-  styles: [
-`
-:host {
-  flex: 1;
-}
-.metad-formly-cdk__drag-placeholder {
-  min-height: 60px;
-}
-`,
-  ]
+  styleUrls: ['array.type.scss'],
 })
 export class MetadFormlyArrayComponent extends FieldArrayType {
 

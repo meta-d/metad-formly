@@ -1,0 +1,33 @@
+:host {
+  flex: 1;
+}
+
+.metad-formly__array-row {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-bottom: 1px dashed transparent;
+  position: relative;
+  border: 1px dashed transparent;
+
+  &:hover {
+    > .metad-formly__remove {
+      visibility: visible;
+      opacity: 1;
+      // right: -40px;
+    }
+  }
+
+  > .metad-formly__remove {
+    position: absolute;
+    right: 0;
+    top: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 300ms;
+  }
+}
+
+.metad-formly-cdk__drag-list.empty {
+  border-radius: 3px;
+}

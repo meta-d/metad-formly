@@ -1,0 +1,44 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin color($config-or-theme) {
+  $color-config: mat.get-color-config($config-or-theme);
+  $primary: map.get($color-config, 'primary');
+  $accent:  map.get($color-config, 'accent');
+  $warn:    map.get($color-config, 'warn');
+  $background: map.get($color-config, background);
+  $foreground:    map.get($color-config, 'foreground');
+
+  .metad-formly-expansion__panel-row {
+    
+  }
+  .metad-formly-expansion__panel-row.removeable {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px dashed mat.get-color-from-palette($foreground, divider);
+    background-color: mat.get-color-from-palette($background, hover);
+  }
+  
+}
+
+@mixin density($config-or-theme) {
+}
+
+@mixin typography($config-or-theme) {
+}
+
+@mixin theme($theme) {
+  $color: mat.get-color-config($theme);
+  $density: mat.get-density-config($theme);
+  $typography: mat.get-typography-config($theme);
+
+  @if $color != null {
+    @include color($color);
+  }
+  @if $density != null {
+    @include density($density);
+  }
+  @if $typography != null {
+    @include typography($typography);
+  }
+}

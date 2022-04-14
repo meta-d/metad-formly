@@ -27,9 +27,9 @@ export class MetadFormlyExpansionComponent<F extends FormlyFieldConfig = FormlyF
   private stagingControl = null
   fieldGroup: Array<{key?: string | number | string[]}>
 
-  constructor(private _cdr: ChangeDetectorRef ) {
-    super()
-  }
+  // constructor(private _cdr: ChangeDetectorRef ) {
+  //   super()
+  // }
   
   ngOnInit(): void {
     this.fieldGroup = this.field.fieldGroup
@@ -49,14 +49,6 @@ export class MetadFormlyExpansionComponent<F extends FormlyFieldConfig = FormlyF
         fields.push(field)
       }
     })
-
-    // Object.keys(this.field.model)
-    //   .filter((key) => !!this.field.model[key]) // negate(isNil)(this.field.model[key]) || 
-    //   .forEach((a: any) => {
-    //     if (this.field.fieldGroup.map((item) => item.key).includes(a)) {
-    //       fields.push(find(this.field.fieldGroup, (b: any) => b.key === a))
-    //     }
-    //   })
 
     this.fields$.next(fields)
 
@@ -88,12 +80,17 @@ export class MetadFormlyExpansionComponent<F extends FormlyFieldConfig = FormlyF
     if (field.model?.__c_formly_initial_value__) {
       delete field.model.__c_formly_initial_value__
     }
+    field.formControl.enable();
+    (this.formControl as unknown as FormGroup).addControl(field.key as string, field.formControl)
+    if (this.field.parent.model?.[this.key as string]) {
+      this.field.parent.model[this.key as string][field.key as string] = field.model
+    }
+    
     const fields = this.fields$.value
     fields.push(field)
-    // if (isNil(this.field.model[field.key as string])) {
-    //   delete this.field.model[field.key as string]
-    // }
+
     this.fields$.next(fields)
+
     this.formControl.setValue(this.formControl.value)
   }
 

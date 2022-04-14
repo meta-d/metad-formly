@@ -18,7 +18,7 @@ max-width: 100%;
 margin-top: 1rem;
 }
 :host.metad-formly__panel-padding {
-  padding: 0 2.5rem;
+  padding: 0 1.5rem;
 }`
   ],
   host: {

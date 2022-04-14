@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyMaterialModule } from '@ngx-formly/material';
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { MetadFormlyPanelModule } from '../panel';
 import { MetadFormlyExpansionComponent } from './expansion-wrapper.component';
 import { MetadFormlyExpansionModule } from './expansion-wrapper.module';
 import { C_FORMLY_INITIAL_VALUE } from './types';
@@ -20,6 +21,7 @@ export default {
         FormlyModule.forRoot(),
         FormlyMaterialModule,
         MetadFormlyExpansionModule,
+        MetadFormlyPanelModule
       ],
     }),
   ],
@@ -36,6 +38,7 @@ const Template: Story<any> = (args: MetadFormlyExpansionComponent) => ({
 function fieldGroup() {
   return [
     {
+      className: 'metad-formly__col col-6',
       key: 'show',
       type: 'checkbox',
       templateOptions: {
@@ -43,6 +46,7 @@ function fieldGroup() {
       },
     },
     {
+      className: 'metad-formly__col col-6',
       key: 'type',
       type: 'select',
       templateOptions: {
@@ -130,6 +134,36 @@ SubExpansion.args = {
             label: 'Expansion Type',
             toggleable: true,
           },
+          fieldGroup: fieldGroup(),
+        }
+      ]
+    },
+  ],
+};
+
+
+export const EnableSelectFields = Template.bind({});
+EnableSelectFields.args = {
+  form: new FormGroup({}),
+  model: {},
+  schema: [
+    {
+      key: 'value',
+      wrappers: ['expansion'],
+      defaultValue: C_FORMLY_INITIAL_VALUE,
+      templateOptions: {
+        label: 'Expansion Type',
+        toggleable: true,
+        enableSelectFields: true
+      },
+      fieldGroup: [
+        {
+          key: 'dataSettings',
+          defaultValue: C_FORMLY_INITIAL_VALUE,
+          templateOptions: {
+            label: 'Data Settings'
+          },
+          fieldGroupClassName: 'metad-formly__row',
           fieldGroup: fieldGroup(),
         }
       ]

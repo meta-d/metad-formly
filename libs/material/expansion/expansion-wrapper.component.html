@@ -21,24 +21,28 @@
         
       </mat-expansion-panel-header>
 
-      <ng-container *ngIf="to.enableSelectFields">
-        <div *ngFor="let fieldItem of fields$ | async; let i = index; let last = last"
-          fxLayout="row" fxLayoutAlign="space-between center"
-          class="nx-formly-expansion__panel-row"
-          [ngClass]="!!fieldItem.key&&!fieldItem.templateOptions?.required?'removeable':''">
-          <formly-field [field]="fieldItem"></formly-field>
+      <ng-template matExpansionPanelContent >
+        <ng-container *ngIf="to.enableSelectFields">
+          <div *ngFor="let fieldItem of fields$ | async; let i = index; let last = last"
+            fxLayout="row" fxLayoutAlign="space-between center"
+            class="metad-formly-expansion__panel-row"
+            [ngClass]="!!fieldItem.key&&!fieldItem.templateOptions?.required?'removeable':''">
+            <formly-field [field]="fieldItem"></formly-field>
+  
+            <!-- <mat-divider></mat-divider> -->
+  
+            <button mat-icon-button class="nx-formly__remove" color="warn" (click)="remove(i)">
+              <mat-icon>clear</mat-icon>
+            </button>
+          </div>
+        </ng-container>
 
-          <mat-divider [vertical]="true" fxFlexAlign="stretch"></mat-divider>
+        <ng-container *ngIf="!to.enableSelectFields" #fieldComponent></ng-container>
+      </ng-template>
 
-          <button mat-icon-button class="nx-formly__remove" color="warn" (click)="remove(i)">
-            <mat-icon>clear</mat-icon>
-          </button>
-        </div>
-      </ng-container>
-
-      <div class="nx-formly-expansion__panel-row" *ngIf="!to.enableSelectFields">
+      <!-- <div class="metad-formly-expansion__panel-row" *ngIf="!to.enableSelectFields">
         <ng-container #fieldComponent></ng-container>
-      </div>
+      </div> -->
       
     </mat-expansion-panel>
 </mat-accordion>

@@ -1,5 +1,6 @@
 :host {
   flex: 1;
+  max-width: 100%;
 
   .mat-accordion {
     display: block;
@@ -10,7 +11,7 @@
   }
 }
 
-.nx-formly-expansion__panel-row {
+.metad-formly-expansion__panel-row {
   position: relative;
 
   formly-field {
@@ -19,13 +20,14 @@
   .nx-formly__remove {
     position: absolute;
     top: 0;
-    right: 10px;
+    right: 0;
   }
   .nx-formly__remove,
-  .mat-divider {
-    visibility: hidden;
-    opacity: 0;
-  }
+
+  // .mat-divider {
+  //   visibility: hidden;
+  //   opacity: 0;
+  // }
 
   &.removeable:hover {
     .nx-formly__remove {
@@ -33,6 +35,11 @@
       opacity: 1;
     }
   }
+
+  // &:hover > .mat-divider {
+  //   visibility: visible;
+  //   opacity: 1;
+  // }
 
 }
 .mat-expansion-panel-header-description {
