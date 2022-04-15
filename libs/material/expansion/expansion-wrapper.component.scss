@@ -22,7 +22,10 @@
     top: 0;
     right: 0;
   }
-  .nx-formly__remove,
+  .nx-formly__remove {
+    visibility: hidden;
+    opacity: 0;
+  }
 
   // .mat-divider {
   //   visibility: hidden;

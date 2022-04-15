@@ -54,7 +54,7 @@ Primary.args = {
               wrappers: ['expansion'],
               templateOptions: {
                 label: 'Data Settings',
-                expanded: true
+                expanded: true,
               },
               fieldGroupClassName: 'metad-formly__row',
               fieldGroup: [
@@ -95,30 +95,83 @@ Primary.args = {
               templateOptions: {
                 label: 'Options',
                 toggleable: true,
+                expanded: true,
+                enableSelectFields: true
               },
-              fieldGroupClassName: 'metad-formly__row',
               fieldGroup: [
                 {
-                  className: 'metad-formly__col col-6',
-                  key: 'show',
-                  type: 'toggle',
+                  key: 'common',
                   templateOptions: {
-                    label: 'Is Show'
-                  }
+                    required: true
+                  },
+                  fieldGroupClassName: 'metad-formly__row',
+                  fieldGroup: [
+                    {
+                      className: 'metad-formly__col col-6',
+                      key: 'show',
+                      type: 'toggle',
+                      templateOptions: {
+                        label: 'Is Show'
+                      }
+                    },
+                    {
+                      hideExpression: `!model || !model.show`,
+                      className: 'metad-formly__col col-6',
+                      key: 'type',
+                      type: 'select',
+                      templateOptions: {
+                        label: 'Type',
+                        placeholder: 'please select a type',
+                        options: [
+                          {value: 'card', label: 'Card'},
+                          {value: 'filter', label: 'Filter'}
+                        ]
+                      }
+                    },
+                  ]
                 },
                 {
-                  hideExpression: `!model || !model.show`,
-                  className: 'metad-formly__col col-6',
-                  key: 'type',
-                  type: 'select',
+                  fieldGroupClassName: 'metad-formly__row',
+                  key: 'xAxis',
+                  wrappers: ['panel'],
+                  defaultValue: C_FORMLY_INITIAL_VALUE,
                   templateOptions: {
-                    label: 'Type',
-                    placeholder: 'please select a type',
-                    options: [
-                      {value: 'card', label: 'Card'},
-                      {value: 'filter', label: 'Filter'}
-                    ]
-                  }
+                    label: 'X Axis'
+                  },
+                  fieldGroup: [
+                    {
+                      className: 'metad-formly__col col-6',
+                      key: 'boundaryGap',
+                      type: 'checkbox',
+                      templateOptions: {
+                        label: 'Boundary Gap'
+                      }
+                    },
+                    {
+                      className: 'metad-formly__col col-6',
+                      key: 'silent',
+                      type: 'checkbox',
+                      templateOptions: {
+                        label: 'Silent'
+                      }
+                    },
+                    {
+                      className: 'metad-formly__col col-6',
+                      key: 'min',
+                      type: 'input',
+                      templateOptions: {
+                        label: 'Min'
+                      }
+                    },
+                    {
+                      className: 'metad-formly__col col-6',
+                      key: 'max',
+                      type: 'input',
+                      templateOptions: {
+                        label: 'Max'
+                      }
+                    }
+                  ]
                 }
               ]
             }

@@ -7,9 +7,10 @@
   * Array Tabs
   * Code Editor
   * Color Picker
+  * Expansion
   * JSON Object
   * Tab Group
-  * Slide Toggle
+  * Panel
 * Ant Design
   * Array Tabset
   * Textarea
