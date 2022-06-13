@@ -1,6 +1,5 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop'
 import { ChangeDetectionStrategy, Component, OnInit, ViewContainerRef } from '@angular/core'
-import { MatDialog } from '@angular/material/dialog'
 import { FieldArrayType } from '@ngx-formly/core'
 
 @Component({
@@ -50,7 +49,6 @@ export class MetadFormlyNzArrayTabsetComponent extends FieldArrayType implements
     return this.to?.attributes?.['labelField'] as string
   }
   constructor(
-    private _dialog: MatDialog,
     private readonly _viewContainerRef: ViewContainerRef
   ) {
     super()

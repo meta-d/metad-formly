@@ -1,6 +1,7 @@
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MetadFormlyNzFormFieldModule } from '@metad/formly-antd/form-field';
 import { FormlyModule } from '@ngx-formly/core';
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 import { MetadFormlyNzTextAreaModule } from './textarea.module';
@@ -17,6 +18,7 @@ export default {
         MatButtonModule,
         FormlyModule.forRoot(),
         MetadFormlyNzTextAreaModule,
+        MetadFormlyNzFormFieldModule
       ],
     }),
   ],

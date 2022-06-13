@@ -7,7 +7,13 @@ import {
 import { FormControl } from '@angular/forms';
 import { MatFormFieldAppearance } from '@angular/material/form-field';
 import { FieldType } from '@ngx-formly/core';
-import { distinctUntilChanged, startWith } from 'rxjs/operators';
+import isEqual from 'lodash/isEqual';
+import {
+  distinctUntilChanged,
+  filter,
+  startWith,
+  withLatestFrom,
+} from 'rxjs/operators';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -22,11 +28,22 @@ export class MetadFormlyJsonComponent extends FieldType implements OnInit {
   fControl = new FormControl();
 
   ngOnInit() {
-    this.appearance = this.to?.attributes?.['appearance'] as MatFormFieldAppearance ?? this.appearance
+    this.appearance =
+      (this.to?.attributes?.['appearance'] as MatFormFieldAppearance) ??
+      this.appearance;
     this.formControl.valueChanges
-      .pipe(startWith(this.formControl.value))
+      .pipe(
+        startWith(this.formControl.value),
+        withLatestFrom(this.fControl.valueChanges.pipe(startWith(null))),
+        filter(([json, value]) => {
+          try {
+            return !isEqual(json, parse(value));
+          } catch (err) {
+            return true;
+          }
+        })
+      )
       .subscribe((value) => {
-        console.warn(value)
         this.fControl.setValue(JSON.stringify(value || undefined, null, 2));
       });
 

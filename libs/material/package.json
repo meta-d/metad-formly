@@ -1,6 +1,6 @@
 {
   "name": "@metad/formly-mat",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "keywords": [
     "Angular",
     "metad",
@@ -16,7 +16,16 @@
   },
   "peerDependencies": {
     "@angular/common": ">=13.0.0",
-    "@angular/core": ">=13.0.0"
+    "@angular/core": ">=13.0.0",
+    "@angular/cdk": ">=13.0.0",
+    "@angular/forms": ">=13.0.0",
+    "@angular/material": ">=13.0.0",
+    "@ngx-formly/core": ">=5.10.0",
+    "@angular/platform-browser": ">=13.0.0",
+    "@ngx-formly/material": ">=5.10.0",
+    "@ng-matero/extensions": ">=13.0.0",
+    "ngx-monaco-editor": ">=12.0.0",
+    "rxjs": ">=7.3.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"

@@ -439,12 +439,13 @@ import { FormGroup } from '@angular/forms';
         </div>
 
         <form [formGroup]="form" (ngSubmit)="onSubmit(model)">
-          <formly-form [form]="form" [fields]="schema" [model]="model"></formly-form>
+          <formly-form [form]="form" [fields]="schema" [model]="model" (modelChange)="onModelChange($event)"></formly-form>
           <!-- <button mat-button type="submit">Submit</button> -->
         </form>
 
         <div>
           <h2>Output:</h2>
+          <pre>{{model | json}}</pre>
           <pre>{{form.value | json}}</pre>
         </div>
 
@@ -462,9 +463,17 @@ export class NxWelcomeComponent implements OnInit {
   model = {}
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.form.valueChanges.subscribe((value) => {
+      console.warn(`~~~~~~`,value)
+    })
+  }
 
   onSubmit(model: unknown) {
     console.log(model)
+  }
+
+  onModelChange(event) {
+    console.warn(event)
   }
 }

@@ -26,10 +26,9 @@
           <div *ngFor="let fieldItem of fields$ | async; let i = index; let last = last"
             fxLayout="row" fxLayoutAlign="space-between center"
             class="metad-formly-expansion__panel-row"
-            [ngClass]="!!fieldItem.key&&!fieldItem.templateOptions?.required?'removeable':''">
+            [ngClass]="!!fieldItem.key&&!fieldItem.templateOptions?.required?'removeable':''"
+          >
             <formly-field [field]="fieldItem"></formly-field>
-  
-            <!-- <mat-divider></mat-divider> -->
   
             <button mat-icon-button class="nx-formly__remove" color="warn" (click)="remove(i)">
               <mat-icon>clear</mat-icon>
@@ -39,10 +38,6 @@
 
         <ng-container *ngIf="!to.enableSelectFields" #fieldComponent></ng-container>
       </ng-template>
-
-      <!-- <div class="metad-formly-expansion__panel-row" *ngIf="!to.enableSelectFields">
-        <ng-container #fieldComponent></ng-container>
-      </div> -->
       
     </mat-expansion-panel>
 </mat-accordion>
@@ -50,7 +45,7 @@
 <mat-menu #menu="matMenu">
   <button mat-menu-item *ngFor="let field of fieldGroup$ | async; let i = index; let last = last; trackBy: trackByKey"
     (click)="onAddField(field)">
-    <mat-icon fontSet="material-icons-outlined">{{ field.templateOptions.icon }}</mat-icon>
-    <span>{{ field.templateOptions.label }}</span>
+    <mat-icon fontSet="material-icons-outlined">{{ field.templateOptions?.icon }}</mat-icon>
+    <span>{{ field.templateOptions?.label }}</span>
   </button>
 </mat-menu>

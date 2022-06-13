@@ -1,8 +1,10 @@
-import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core'
-import { FormGroup } from '@angular/forms'
+import { Component, OnInit, ViewChild } from '@angular/core'
+import { FormControl, FormGroup } from '@angular/forms'
 import { MatExpansionPanel } from '@angular/material/expansion'
 import { FieldWrapper, FormlyFieldConfig } from '@ngx-formly/core'
-import { groupBy, isEmpty, isNil } from 'lodash'
+import groupBy from 'lodash/groupBy'
+import isEmpty from 'lodash/isEmpty'
+import isNil from 'lodash/isNil'
 import { BehaviorSubject, Observable } from 'rxjs'
 import { filter, map, tap } from 'rxjs/operators'
 import { C_FORMLY_INITIAL_VALUE } from './types'
@@ -22,14 +24,9 @@ export class MetadFormlyExpansionComponent<F extends FormlyFieldConfig = FormlyF
 
   fields$     = new BehaviorSubject<F[]>([])
   fieldGroup$: Observable<FormlyFieldConfig[]>
-  private stagingModel = null
-  // private stagingFieldGroup = null
   private stagingControl = null
   fieldGroup: Array<{key?: string | number | string[]}>
 
-  // constructor(private _cdr: ChangeDetectorRef ) {
-  //   super()
-  // }
   
   ngOnInit(): void {
     this.fieldGroup = this.field.fieldGroup
@@ -100,19 +97,10 @@ export class MetadFormlyExpansionComponent<F extends FormlyFieldConfig = FormlyF
 
   remove(index: number) {
     const fields = this.fields$.value;
-    // (this.formControl as FormGroup).removeControl(fields[index].key as string)
-    // this.form.setValue(this.form.value)
-    // // console.warn(this.form.value)
-    // this.options.updateInitialValue()
-    // this.field.options.updateInitialValue()
-    // this.formControl.updateValueAndValidity()
-    // this._cdr.markForCheck()
-    // this._cdr.detectChanges()
-    // this.field.model[fields[index].key as string] = null
 
     fields.splice(index, 1)
     this.fields$.next(fields)
-    // 这句会出发最终的 formly-form modelChange 事件
+    // 这句会触发最终的 formly-form modelChange 事件
     this.formControl.setValue(this.formControl.value)
   }
 
@@ -131,44 +119,19 @@ export class MetadFormlyExpansionComponent<F extends FormlyFieldConfig = FormlyF
   close() {
     this.to.disabled = true
     this.expansionPanel?.close()
-    
-    // this.stagingFieldGroup = this.field.fieldGroup
-    // this.field.fieldGroup = []
-    this.stagingModel = this.field.parent.model?.[this.field.key as string]
-    if (this.field.parent.model) {
-      this.field.parent.model[this.field.key as string] = null
-    }
 
     this.stagingControl = this.field.form.get(this.field.key as string)
-    this.field.form.removeControl(this.field.key as string)
+    this.field.form.setControl(this.field.key as string, new FormControl(null))
 
-    // this.field.formControl.disable()
-    // this.field.formControl.setValue(null)
-    // this.field.parent.formControl.patchValue({[this.field.key as string]: null}, {emitEvent: true})
-
-    // console.warn(this.form.value, this.field.parent.formControl.value)
-
-    // this.form.setValue(this.form.value)
+    this.form.setValue({...this.form.value})
   }
 
   open() {
-    if (this.stagingModel) {
-      if (Array.isArray(this.stagingModel)) {
-        this.field.parent.model[this.field.key as string] = [...this.stagingModel]
-      } else {
-        this.field.parent.model[this.field.key as string] = {...this.stagingModel}
-      }
-      delete this.field.parent.model[this.field.key as string].__c_formly_initial_value__
-    }
-
     if (this.stagingControl) {
-      this.field.form.addControl(this.field.key as string, this.stagingControl)
+      this.field.form.setControl(this.field.key as string, this.stagingControl)
     }
-
-    // if (isEmpty(this.field.fieldGroup) && !isNil(this.stagingFieldGroup)) {
-    //   this.field.fieldGroup = this.stagingFieldGroup
-    // }
     this.to.disabled = false
     this.expansionPanel?.open()
+    this.form.setValue({...this.form.value})
   }
 }

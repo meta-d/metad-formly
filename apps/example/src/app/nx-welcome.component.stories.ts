@@ -174,7 +174,29 @@ Primary.args = {
                   ]
                 }
               ]
-            }
+            },
+            {
+              key: 'value',
+              wrappers: ['expansion'],
+              defaultValue: C_FORMLY_INITIAL_VALUE,
+              templateOptions: {
+                label: 'Expansion Type',
+                toggleable: true,
+              },
+              fieldGroup: [
+                ...fieldGroup(),
+                {
+                  key: 'value',
+                  wrappers: ['expansion'],
+                  defaultValue: C_FORMLY_INITIAL_VALUE,
+                  templateOptions: {
+                    label: 'Expansion Type',
+                    toggleable: true,
+                  },
+                  fieldGroup: fieldGroup(),
+                }
+              ]
+            },
           ]
         },
         {
@@ -227,6 +249,30 @@ Primary.args = {
   ],
 };
 
+function fieldGroup() {
+  return [
+    {
+      className: 'metad-formly__col col-6',
+      key: 'show',
+      type: 'checkbox',
+      templateOptions: {
+        label: 'Is Show',
+      },
+    },
+    {
+      className: 'metad-formly__col col-6',
+      key: 'type',
+      type: 'select',
+      templateOptions: {
+        label: 'Type',
+        options: [
+          { value: 'value', label: 'Value' },
+          { value: 'category', label: 'Category' },
+        ],
+      },
+    },
+  ]
+}
 
 function Background(col?: number) {
   let className = null

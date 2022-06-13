@@ -2,8 +2,6 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDialogModule } from '@angular/material/dialog';
 import { FormlyModule } from '@ngx-formly/core';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzInputModule } from 'ng-zorro-antd/input';
@@ -18,8 +16,6 @@ import { MetadFormlyNzArrayTabsetComponent } from './tabset.type';
     FormsModule,
     ReactiveFormsModule,
     DragDropModule,
-    MatDialogModule,
-    MatButtonModule,
     NzTabsModule,
     NzButtonModule,
     NzInputModule,
