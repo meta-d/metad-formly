@@ -24,6 +24,12 @@ import {
 export class MetadFormlyJsonComponent extends FieldType implements OnInit {
   @HostBinding('class.metad-formly-mat-json')
   appearance: MatFormFieldAppearance = 'standard';
+  override defaultOptions = {
+    templateOptions: {
+      cols: 1,
+      rows: 1,
+    },
+  }
 
   fControl = new FormControl();
 
@@ -43,7 +49,7 @@ export class MetadFormlyJsonComponent extends FieldType implements OnInit {
           }
         })
       )
-      .subscribe((value) => {
+      .subscribe(([value]) => {
         this.fControl.setValue(JSON.stringify(value || undefined, null, 2));
       });
 

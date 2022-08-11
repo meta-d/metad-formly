@@ -1,7 +1,19 @@
 <mat-form-field [appearance]="appearance">
-  <mat-label>{{to.label}}</mat-label>
+  <mat-label>{{to?.label}}</mat-label>
 
-  <textarea matInput [formControl]="fControl"></textarea>
+  <textarea matInput [formControl]="fControl" [placeholder]="to?.placeholder"
+    [formlyAttributes]="field"
+    [id]="id"
+    [readonly]="to.readonly"
+    [required]="to.required"
+    [tabindex]="to.tabindex"
+    [cols]="to.cols"
+    [rows]="to.rows"
+    [cdkTextareaAutosize]="to.autosize"
+    [cdkAutosizeMinRows]="to.autosizeMinRows"
+    [cdkAutosizeMaxRows]="to.autosizeMaxRows"
+    [class.cdk-textarea-autosize]="to.autosize"
+  ></textarea>
 
   <mat-error *ngIf="fControl.invalid">
     <span *ngFor="let item of fControl.errors | keyvalue">{{item.value.message}}</span>

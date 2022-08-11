@@ -39,6 +39,7 @@ Primary.args = {
       type: 'json',
       templateOptions: {
         label: 'JSON',
+        placeholder: `'pixal' | '%'`
       },
     },
   ],
@@ -65,6 +66,7 @@ Appearance.args = {
       type: 'json',
       templateOptions: {
         label: 'JSON Outline',
+        placeholder: `'pixal' | '%'`,
         attributes: {
           appearance: 'outline',
         },
@@ -75,9 +77,125 @@ Appearance.args = {
       type: 'json',
       templateOptions: {
         label: 'JSON Fill',
+        placeholder: `'pixal' | '%'`,
         attributes: {
           appearance: 'fill',
         },
+      },
+    },
+  ],
+};
+
+export const Autosize = Template.bind({});
+Autosize.args = {
+  form: new FormGroup({}),
+  model: {},
+  schema: [
+    {
+      key: 'value',
+      type: 'json',
+      templateOptions: {
+        label: 'JSON',
+        placeholder: `'pixal' | '%'`,
+        autosize: true
+      },
+    },
+  ],
+};
+
+export const AutosizeMinRows = Template.bind({});
+AutosizeMinRows.args = {
+  form: new FormGroup({}),
+  model: {},
+  schema: [
+    {
+      key: 'value',
+      type: 'json',
+      templateOptions: {
+        label: 'JSON',
+        autosize: true,
+        autosizeMinRows: 2
+      },
+    },
+  ],
+};
+
+export const AutosizeMaxRows = Template.bind({});
+AutosizeMaxRows.args = {
+  form: new FormGroup({}),
+  model: {},
+  schema: [
+    {
+      key: 'value',
+      type: 'json',
+      templateOptions: {
+        label: 'JSON',
+        autosize: true,
+        autosizeMaxRows: 3
+      },
+    },
+  ],
+};
+
+export const Cols = Template.bind({});
+Cols.args = {
+  form: new FormGroup({}),
+  model: {},
+  schema: [
+    {
+      key: 'value',
+      type: 'json',
+      templateOptions: {
+        label: 'JSON',
+        cols: 3,
+      },
+    },
+  ],
+};
+
+export const Readonly = Template.bind({});
+Readonly.args = {
+  form: new FormGroup({}),
+  model: {},
+  schema: [
+    {
+      key: 'value',
+      type: 'json',
+      templateOptions: {
+        label: 'JSON',
+        readonly: true,
+      },
+    },
+  ],
+};
+
+export const Required = Template.bind({});
+Required.args = {
+  form: new FormGroup({}),
+  model: {},
+  schema: [
+    {
+      key: 'value',
+      type: 'json',
+      templateOptions: {
+        label: 'JSON',
+        required: true,
+      },
+    },
+  ],
+};
+
+export const Placeholder = Template.bind({});
+Placeholder.args = {
+  form: new FormGroup({}),
+  model: {},
+  schema: [
+    {
+      key: 'value',
+      type: 'json',
+      templateOptions: {
+        label: 'JSON',
+        placeholder: `Insert json value`,
       },
     },
   ],

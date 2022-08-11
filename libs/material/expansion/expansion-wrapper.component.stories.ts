@@ -111,6 +111,25 @@ DefaultNull.args = {
   ],
 };
 
+export const ToggleableAndNull = Template.bind({});
+ToggleableAndNull.args = {
+  form: new FormGroup({}),
+  model: {
+    value: null
+  },
+  schema: [
+    {
+      key: 'value',
+      wrappers: ['expansion'],
+      templateOptions: {
+        label: 'Expansion Type',
+        toggleable: true,
+      },
+      fieldGroup: fieldGroup(),
+    },
+  ],
+};
+
 export const SubExpansion = Template.bind({});
 SubExpansion.args = {
   form: new FormGroup({}),
@@ -141,6 +160,52 @@ SubExpansion.args = {
   ],
 };
 
+export const SubExpansionAndNull = Template.bind({});
+SubExpansionAndNull.args = {
+  form: new FormGroup({}),
+  model: {
+    value: {
+
+    }
+  },
+  schema: [
+    {
+      key: 'value',
+      wrappers: ['expansion'],
+      // defaultValue: C_FORMLY_INITIAL_VALUE,
+      templateOptions: {
+        label: 'Expansion Type',
+        toggleable: true,
+        // expanded: true
+      },
+      fieldGroup: [
+        ...fieldGroup(),
+        {
+          key: 'value',
+          wrappers: ['expansion'],
+          defaultValue: C_FORMLY_INITIAL_VALUE,
+          templateOptions: {
+            label: 'Expansion Type',
+            toggleable: true,
+          },
+          fieldGroup: [
+            ...fieldGroup(),
+            {
+              key: 'value',
+              wrappers: ['expansion'],
+              defaultValue: C_FORMLY_INITIAL_VALUE,
+              templateOptions: {
+                label: 'Expansion Type',
+                toggleable: true,
+              },
+              fieldGroup: fieldGroup(),
+            }
+          ]
+        }
+      ]
+    },
+  ],
+};
 
 export const EnableSelectFields = Template.bind({});
 EnableSelectFields.args = {

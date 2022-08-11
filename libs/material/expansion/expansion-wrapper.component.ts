@@ -123,7 +123,7 @@ export class MetadFormlyExpansionComponent<F extends FormlyFieldConfig = FormlyF
     this.stagingControl = this.field.form.get(this.field.key as string)
     this.field.form.setControl(this.field.key as string, new FormControl(null))
 
-    this.form.setValue({...this.form.value})
+    // this.form.setValue({...this.form.value}, {emitEvent: false})
   }
 
   open() {
@@ -132,6 +132,6 @@ export class MetadFormlyExpansionComponent<F extends FormlyFieldConfig = FormlyF
     }
     this.to.disabled = false
     this.expansionPanel?.open()
-    this.form.setValue({...this.form.value})
+    // this.form.setValue({...this.form.value})
   }
 }

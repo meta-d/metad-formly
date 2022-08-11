@@ -30,7 +30,10 @@
           >
             <formly-field [field]="fieldItem"></formly-field>
   
-            <button mat-icon-button class="nx-formly__remove" color="warn" (click)="remove(i)">
+            <button *ngIf="!!fieldItem.key&&!fieldItem.templateOptions?.required" mat-icon-button
+              class="nx-formly__remove"
+              color="warn"
+              (click)="remove(i)">
               <mat-icon>clear</mat-icon>
             </button>
           </div>
