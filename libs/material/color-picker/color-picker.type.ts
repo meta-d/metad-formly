@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core'
 import { ColorFormat } from '@ng-matero/extensions/colorpicker'
-import { FieldType } from '@ngx-formly/material/form-field'
+import { FieldType } from '@ngx-formly/core'
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,

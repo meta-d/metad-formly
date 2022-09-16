@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy, ViewChild } from '@angular/core';
-import { FieldType } from '@ngx-formly/material/form-field';
 import { MatSlideToggle } from '@angular/material/slide-toggle';
+import { FieldType } from '@ngx-formly/core';
 
 @Component({
   selector: 'metad-formly-mat-toggle',
@@ -33,8 +33,7 @@ export class MetadFormlyToggleComponent extends FieldType {
     },
   };
 
-  override onContainerClick(event: MouseEvent): void {
+  onContainerClick(event: MouseEvent): void {
     this.slideToggle.focus();
-    super.onContainerClick(event);
   }
 }

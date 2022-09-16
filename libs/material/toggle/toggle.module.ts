@@ -20,7 +20,7 @@ import { FormlyMatFormFieldModule } from '@ngx-formly/material/form-field';
         {
           name: 'toggle',
           component: MetadFormlyToggleComponent,
-          wrappers: ['form-field'],
+          // wrappers: ['form-field'],
         },
       ],
     }),

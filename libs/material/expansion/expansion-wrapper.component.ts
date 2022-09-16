@@ -2,9 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core'
 import { FormControl, FormGroup } from '@angular/forms'
 import { MatExpansionPanel } from '@angular/material/expansion'
 import { FieldWrapper, FormlyFieldConfig } from '@ngx-formly/core'
-import groupBy from 'lodash/groupBy'
-import isEmpty from 'lodash/isEmpty'
-import isNil from 'lodash/isNil'
+import { isNil, isEmpty, groupBy } from 'lodash-es'
 import { BehaviorSubject, Observable } from 'rxjs'
 import { filter, map, tap } from 'rxjs/operators'
 import { C_FORMLY_INITIAL_VALUE } from './types'
@@ -25,7 +23,7 @@ export class MetadFormlyExpansionComponent<F extends FormlyFieldConfig = FormlyF
   fields$     = new BehaviorSubject<F[]>([])
   fieldGroup$: Observable<FormlyFieldConfig[]>
   private stagingControl = null
-  fieldGroup: Array<{key?: string | number | string[]}>
+  fieldGroup: FormlyFieldConfig[]
 
   
   ngOnInit(): void {
@@ -120,15 +118,15 @@ export class MetadFormlyExpansionComponent<F extends FormlyFieldConfig = FormlyF
     this.to.disabled = true
     this.expansionPanel?.close()
 
-    this.stagingControl = this.field.form.get(this.field.key as string)
-    this.field.form.setControl(this.field.key as string, new FormControl(null))
+    this.stagingControl = this.field.form.get(this.field.key as string);
+    (this.field.form as FormGroup).setControl(this.field.key as string, new FormControl(null))
 
     // this.form.setValue({...this.form.value}, {emitEvent: false})
   }
 
   open() {
     if (this.stagingControl) {
-      this.field.form.setControl(this.field.key as string, this.stagingControl)
+      (this.field.form as FormGroup).setControl(this.field.key as string, this.stagingControl)
     }
     this.to.disabled = false
     this.expansionPanel?.open()

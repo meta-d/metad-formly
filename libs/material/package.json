@@ -1,6 +1,6 @@
 {
   "name": "@metad/formly-mat",
-  "version": "0.1.7",
+  "version": "0.2.0",
   "keywords": [
     "Angular",
     "metad",
@@ -20,9 +20,7 @@
     "@angular/cdk": ">=13.0.0",
     "@angular/forms": ">=13.0.0",
     "@angular/material": ">=13.0.0",
-    "@ngx-formly/core": ">=5.10.0",
     "@angular/platform-browser": ">=13.0.0",
-    "@ngx-formly/material": ">=5.10.0",
     "@ng-matero/extensions": ">=13.0.0",
     "ngx-monaco-editor": ">=12.0.0",
     "rxjs": ">=7.3.0"
